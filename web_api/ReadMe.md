@@ -1,6 +1,6 @@
  ## web_api
 
-### Technology Required
+### Required
  + Node js
  + Mongo db
  + Express 
