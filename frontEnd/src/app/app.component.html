@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+         
+      </div>
+       <a class="navbar-brand" href="#" style="color: white">Web_App</a>
+      <div id="navbar" class="navbar-collapse collapse">
+        
+          <ul class="nav navbar-nav navbar-right">
+               <!-- <li><button class="btn btn-lg btn-default" style="color: #167BF5">+ ADD</button></li> -->
+            
+      <li><a routerLink="/users">Home</a></li>
+      <li><a routerLink="/contactus">Contact</a></li>
+          </ul>
+      </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+
+
+
+<div class="container" *ngIf="_router.url != '/users' && contactus">
+
+    <p style="margin-top: 60px">users in database:</p> 
+    <div class="table-title" >
+      <div class="row">
+          <div class="col-sm-8"><h4>Users</h4></div>
+          <div class="col-sm-4">
+              <!-- <button type="button" (click)="registerUser(items)" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> -->
+              <!-- <button type="button" (click)="adduser(items)" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> -->
+          </div>
+      </div>
+  </div>             
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>City</th>
+          <th>State</th>
+  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of myData, let i = index">
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.city}}</td>
+          <td>{{item.state}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+<router-outlet></router-outlet>

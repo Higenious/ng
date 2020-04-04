@@ -1,0 +1,7 @@
+{
+    "/posts": {
+      "target": "http://localhost:6000/api/v1/",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
