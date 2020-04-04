@@ -1,4 +1,4 @@
- ## Ecommerce API
+ ## web_api
 
 ### Technology Required
  + Node js
@@ -8,7 +8,6 @@
 ### How to Start
  - Download zip or Clone project.
  - Navigate to folder.
- - for sendig mail just enter id and password in config folder.
  - npm install 
  - npm start  
 
