@@ -1,10 +1,10 @@
 import {Component,OnInit,ElementRef, Directive, Input, ViewChild} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserServiceService } from '../../user-service.service';
-import {AdduserComponent} from '../users/adduser/adduser.component';
 import swal from 'sweetalert';
 import { from } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
+import { NG_MODEL_WITH_FORM_CONTROL_WARNING } from '@angular/forms/src/directives';
 export default swal;
 const headers = new HttpHeaders ({'Content-Type': 'application/json'});
 
@@ -37,6 +37,7 @@ export class UsersComponent implements OnInit {
   }
 
 
+/** laod all user when application start */
   public loadData() {
     this.UserServiceService.getAPIData()
       .subscribe(
@@ -49,6 +50,7 @@ export class UsersComponent implements OnInit {
   }
 
 
+  /** Delete user */
   public delete(items) {
       swal({
       title: "Are you sure?",
@@ -70,39 +72,45 @@ export class UsersComponent implements OnInit {
       }
      })
     });
-
   }
 
-  public registerUser() {
-    this.router.navigateByUrl('/adduser');
 
-  }
+
 
   public editUser(items) {
     this.editUserForm = true;
-      //this.editedUser = user;
+     //this.editedUser = user;
     this.router.navigateByUrl('/adduser');
   }
+
+
+
+
 
 public adduser(){
   this.userForm = true;
   this.isNewUser = true;  
 }
 
+
+
+
+/** Register user */
 public save(user){
   this.UserServiceService.registerUser(user).subscribe(result=>{
     if(result){
       swal("Good job!", "User has been added succesfully!", "success");
-    }
-    this.loadData();
+    } this.loadData(); 
   });
+  this.loadData();
   }
-
+ 
+ 
+ 
+ 
   openModel(myData){
     console.log('open  model edit', myData);
-    //this.myModal = true;
- 
-     
+    //this.myModal = true  
   }
  
 }

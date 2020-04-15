@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './Components/users/users.component';
-import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { ContactComponent } from './Components/contact/contact.component';
-import { AdduserComponent } from './Components/users/adduser/adduser.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -14,9 +12,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     UsersComponent,
-    AboutusComponent,
-    ContactComponent,
-    AdduserComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
