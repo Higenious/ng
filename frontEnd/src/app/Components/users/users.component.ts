@@ -6,8 +6,8 @@ import { from } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
 import { NG_MODEL_WITH_FORM_CONTROL_WARNING } from '@angular/forms/src/directives';
 export default swal;
+import { Inject} from '@angular/core';
 const headers = new HttpHeaders ({'Content-Type': 'application/json'});
-
 
 @Component({
   selector: 'app-users',
@@ -52,29 +52,17 @@ export class UsersComponent implements OnInit {
 
   /** Delete user */
   public delete(items) {
-      swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover!",
-      icon: "warning",
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-     this.UserServiceService.deleteUser(items).subscribe(res=>{
-       if(res){
-         if (willDelete) {
-          swal("Poof! user has been deleted!", {
-            icon: "success",
-          });
-          this.loadData();
-        } else {
-          swal("user is safe!");
-        }
-      }
-     })
+      if(confirm("Are you sure to delete ? ")) { 
+        this.UserServiceService.deleteUser(items).subscribe(res=>{
+          if(res){
+            alert('user deleted successgully!')
+             this.loadData();
+           } else {
+            alert('User is safe');  
+           }   
     });
   }
-
-
+  }
 
 
   public editUser(items) {
@@ -99,7 +87,8 @@ public adduser(){
 public save(user){
   this.UserServiceService.registerUser(user).subscribe(result=>{
     if(result){
-      swal("Good job!", "User has been added succesfully!", "success");
+      //swal("Good job!", "User has been added succesfully!", "success");
+      alert("User has been added succesfully!")
     } this.loadData(); 
   });
   this.loadData();
